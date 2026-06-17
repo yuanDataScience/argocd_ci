@@ -3,7 +3,6 @@ kind: Kustomization
 
 resources:
   - fastapi_deploy.yaml
-  - fastapi_service.yaml
-  - namespace.yaml
+  - fastapi_service.yaml  
 
 namespace: fastapi-inference
