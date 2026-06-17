@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fastapi-app
+  labels:
+    app: fastapi-app
+spec:
+  selector:
+    matchLabels:
+      app: fastapi-app
+  template:
+    metadata:
+      labels:
+        app: fastapi-app
+    spec:
+      containers:
+      - name: fastapi-app
+        image: huangyuan2000/fastapi-inference:v1
+        resources:
+          requests:
+            memory: "128Mi"
+            cpu: "500m"
+          limits:
+            memory: "1Gi"
+            cpu: "500m"
+        env:
+        - name: PYTHONUNBUFFERED         # FORCE Python to output prints instantly to kubectl logs
+          value: "1"
+        envFrom:
+        - configMapRef:
+            name: env-config
+        - secretRef:               # <--- This automatically parses the entire secret!
+            name: fastapi-secret        
+        ports:
+        - containerPort: 8000
+
+
+
+
