@@ -2,10 +2,11 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
 resources:
-  - fastapi_deploy.yaml
-  - fastapi_service.yaml  
+- fastapi_deploy.yaml
+- fastapi_service.yaml
 
 images:
-  - name: huangyuan2000/fastapi-inference
-    newTag: a144731
+- name: huangyuan2000/fastapi-inference
+  newName: huangyuan2000/fastapi-inference
+  newTag: 429865c
 namespace: fastapi-inference
