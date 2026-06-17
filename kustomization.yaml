@@ -7,5 +7,5 @@ resources:
 
 images:
   - name: huangyuan2000/fastapi-inference
-    newTag: a04294f
+    newTag: v1
 namespace: fastapi-inference
